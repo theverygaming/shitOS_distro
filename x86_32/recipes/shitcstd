@@ -1,0 +1,18 @@
+name=shitcstd
+revision=1
+from_source=shitcstd
+imagedeps="base-devel gcc-multilib cmake"
+
+configure() {
+	cmake ${source_dir}
+}
+
+build() {
+	make -j${parallelism}
+}
+
+install(){
+	mkdir -p ${dest_dir}/usr/include ${dest_dir}/usr/lib
+	cp -R ${source_dir}/include/. ${dest_dir}/usr/include
+	cp libshitcstd.a ${dest_dir}/usr/lib
+}

@@ -1,0 +1,18 @@
+name=fbdoom
+revision=1
+from_source=fbdoom
+imagedeps="base-devel gcc-multilib"
+hostdeps="musl"
+
+configure() {
+	true
+}
+
+build() {
+	make -C ${source_dir}/fbdoom/ OBJDIR=$(pwd)/obj OUTPUT=$(pwd)/fbdoom LIBS="" CROSS_COMPILE="musl-" LDFLAGS="" CFLAGS="-m32 -march=i386 -Wl,-melf_i386" -j${parallelism}
+}
+
+install() {
+	mkdir -p "${dest_dir}/usr/bin"
+	cp -f "${build_dir}/builds/${name}/fbdoom" "${dest_dir}/usr/bin/fbdoom"
+}

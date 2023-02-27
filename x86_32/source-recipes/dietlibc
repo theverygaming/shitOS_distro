@@ -1,0 +1,9 @@
+name=dietlibc
+version=99efeab08136bd748136f3ef77254b2297d8d0c7
+source_method=tarball
+tarball_url="https://github.com/theverygaming/dietlibc-shitOS/archive/${version}.tar.gz"
+tarball_sha512=a
+
+regenerate() {
+	true
+}

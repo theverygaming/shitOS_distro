@@ -1,0 +1,22 @@
+name=vim
+revision=1
+from_source=vim
+imagedeps="base-devel gcc-multilib"
+hostdeps="musl ncurses"
+
+configure() {
+    cp -RL ${source_dir}/. . # fuuuuu
+
+    vim_cv_toupper_broken="set" ./configure --with-features=huge \
+        --prefix=${prefix} \
+        --host i386-linux \
+        CC="musl-gcc" CFLAGS="-static -m32 -march=i386" LDFLAGS="-Wl,-melf_i386"
+}
+
+build() {
+    make -j${parallelism}
+}
+
+install() {
+	make install DESTDIR="${dest_dir}"
+}

@@ -1,0 +1,21 @@
+name=musl
+revision=1
+from_source=musl
+imagedeps="base-devel gcc-multilib kernel-headers-musl"
+
+configure() {
+	${source_dir}/configure --enable-wrapper --target=i386-linux --prefix="${prefix}/musl" --disable-shared CC="gcc -m32 -march=i386" AR="ar" RANLIB="ranlib"
+}
+
+build() {
+	make -j ${parallelism}
+}
+
+install(){
+	mkdir -p "${dest_dir}/${prefix}/musl/include"
+	cp -R "/usr/lib/musl/include/linux" "${dest_dir}/${prefix}/musl/include/"
+	cp -R "/usr/lib/musl/include/asm" "${dest_dir}/${prefix}/musl/include/"
+	cp -R "/usr/lib/musl/include/asm-generic" "${dest_dir}/${prefix}/musl/include/"
+	make install DESTDIR="${dest_dir}"
+	sed -i 's/ -m32 -march=i386}"/}" -m32 -march=i386/g' "${dest_dir}/${prefix}/musl/bin/musl-gcc"
+}

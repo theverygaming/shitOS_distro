@@ -1,0 +1,26 @@
+name: Build
+on: [push, pull_request]
+jobs:
+  build-x86_32:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive
+
+      - name: install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install make curl git tree -y
+
+      - name: compile
+        run: | 
+          cd $GITHUB_WORKSPACE
+          cd x86_32
+          make
+
+      - name: create sysroot
+        run: | 
+          cd $GITHUB_WORKSPACE
+          cd x86_32
+          make sysroot

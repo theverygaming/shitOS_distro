@@ -1,0 +1,9 @@
+name=fbdoom
+version=912c51c4d0e5aa899bb534e8c77227a556ff2377
+source_method=tarball
+tarball_url="https://github.com/maximevince/fbDOOM/archive/${version}.tar.gz"
+tarball_sha512=3c578a669bf555e475d3fcc9728802c8f9be91efa951d883904ac948f20a758a6e27bdc0d4e896994e52b57057405aba0091de26cd91ae98ee848e5156e49a28
+
+regenerate() {
+	true
+}

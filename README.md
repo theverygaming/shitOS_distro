@@ -1,1 +1,1 @@
-# shitOS_distro
+# vix_distro
