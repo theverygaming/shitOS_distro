@@ -11,7 +11,7 @@ jobs:
       - name: install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install make curl git tree -y
+          sudo apt-get install curl libarchive-tools make git tree -y
 
       - name: compile
         run: | 
