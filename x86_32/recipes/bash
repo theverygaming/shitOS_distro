@@ -5,7 +5,7 @@ imagedeps="base-devel gcc-multilib"
 hostdeps="musl"
 
 configure() {
-	${source_dir}/configure \
+    ${source_dir}/configure \
         --host=i386-linux \
         --prefix=${prefix} \
         --sysconfdir=/etc \
@@ -20,5 +20,10 @@ build() {
 }
 
 install() {
-	make install-strip DESTDIR="${dest_dir}"
+    make install-strip DESTDIR="${dest_dir}"
+
+    mkdir -p ${dest_dir}/bin
+    pushd ${dest_dir}/bin
+    ln -sv ${prefix}/bin/bash sh
+    popd
 }

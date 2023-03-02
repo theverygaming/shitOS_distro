@@ -1,0 +1,7 @@
+name=base-files
+version=0
+source_dir="./host-recipes" # we just need some random directory
+
+regenerate() {
+	true
+}

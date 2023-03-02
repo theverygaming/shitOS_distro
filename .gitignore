@@ -1,3 +1,5 @@
+.vscode/
+
 x86_32/.jinx-cache/
 x86_32/sources/
 x86_32/builds/

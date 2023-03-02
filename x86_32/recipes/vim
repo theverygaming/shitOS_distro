@@ -5,7 +5,7 @@ imagedeps="base-devel gcc-multilib"
 hostdeps="musl ncurses"
 
 configure() {
-    cp -RL ${source_dir}/. . # fuuuuu
+    cp -rp "${source_dir}/." ./
 
     vim_cv_toupper_broken="set" ./configure --with-features=huge \
         --prefix=${prefix} \
@@ -18,5 +18,5 @@ build() {
 }
 
 install() {
-	make install DESTDIR="${dest_dir}"
+    make install DESTDIR="${dest_dir}"
 }

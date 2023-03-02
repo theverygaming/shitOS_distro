@@ -1,0 +1,23 @@
+name=coreutils
+revision=1
+from_source=coreutils
+imagedeps="base-devel gcc-multilib gperf"
+hostdeps="musl"
+
+configure() {
+    cp -rp "${source_dir}/." ./
+
+	./configure \
+        --host=i386-linux \
+        --disable-nls \
+        --prefix=${prefix} \
+        CC="musl-gcc" CFLAGS="-m32 -march=i386 -Wl,-melf_i386" LDFLAGS="-Wl,-melf_i386"
+}
+
+build() {
+    make -j${parallelism}
+}
+
+install() {
+	make install-strip DESTDIR="${dest_dir}"
+}
