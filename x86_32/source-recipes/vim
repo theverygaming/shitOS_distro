@@ -1,9 +1,0 @@
-name=vim
-version=8.1
-source_method=tarball
-tarball_url="ftp://ftp.vim.org/pub/vim/unix/vim-${version}.tar.bz2"
-tarball_sha512=141074bdc25d68f7ced9b596da3b5c6e719f9e316b3ce6cb30d0c501d0c5396e2c6d0efc6425a41f2320cd80593fbb1c5ca64fb5e2178f1fb16cdbb470aa630e
-
-regenerate() {
-	true
-}

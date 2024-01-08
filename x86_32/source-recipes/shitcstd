@@ -1,9 +1,0 @@
-name=shitcstd
-version=ba501d2a9d85bd48d7c53e5ee0bed973dda41a63
-source_method=tarball
-tarball_url="https://github.com/theverygaming/shitcstd/archive/${version}.tar.gz"
-tarball_sha512=a
-
-regenerate() {
-	true
-}

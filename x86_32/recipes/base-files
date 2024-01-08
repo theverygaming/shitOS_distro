@@ -1,18 +1,8 @@
 name=base-files
-from_source=base-files
+version=0.0
 revision=1
+source_dir="base-files"
 
-configure() {
-    true
-}
-
-build() {
-    true
-}
-
-install() {
-	mkdir -p ${dest_dir}/etc
-    echo -en "root:x:0:0::/root:/bin/sh" > ${dest_dir}/etc/passwd
-    echo -en "root:x:0:root" > ${dest_dir}/etc/group
-    echo -en 'NAME="vix"\nPRETTY_NAME="vix"\nID=vix\nBUILD_ID=0.0.1' > ${dest_dir}/etc/os-release
+package() {
+    cp -rpv "${source_dir}"/. "${dest_dir}"/
 }

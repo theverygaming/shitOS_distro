@@ -1,1 +1,1 @@
-export PATH="${PATH}:/usr/local/musl/bin"
+JINX_MAJOR_VER=0.2

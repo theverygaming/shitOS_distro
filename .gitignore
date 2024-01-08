@@ -1,10 +1,10 @@
 .vscode/
 
-x86_32/.jinx-cache/
-x86_32/sources/
-x86_32/builds/
-x86_32/host-builds/
-x86_32/pkgs/
-x86_32/host-pkgs/
-x86_32/sysroot/
-x86_32/jinx
+/x86_32/.jinx-cache/
+/x86_32/jinx
+/x86_32/sources/
+/x86_32/builds/
+/x86_32/host-builds/
+/x86_32/pkgs/
+/x86_32/host-pkgs/
+/x86_32/sysroot/
